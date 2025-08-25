@@ -17,7 +17,7 @@ resource "aws_instance" "create_instance" {
   user_data = <<-EOF
     #!/bin/bash
     sudo growpart /dev/nvme0n1 4
-    sudo lvextend -L +10G /dev/mapper/RootVG-rootVol
+    sudo lvextend -L +12G /dev/mapper/RootVG-rootVol
     sudo xfs_growfs /
     sudo lvextend -L +10G /dev/mapper/RootVG-homeVol
     sudo xfs_growfs /home
